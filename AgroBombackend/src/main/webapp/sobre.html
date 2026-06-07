@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Faz a página se adaptar melhor ao tamanho da tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGROBOM - Sobre</title>
+
+    <!-- Fonte usada no sistema -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Biblioteca de ícones usada no menu lateral -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Arquivo CSS principal do painel -->
+    <link rel="stylesheet" href="painel.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+    <!-- ===================================================== -->
+    <!-- MENU LATERAL                                          -->
+    <!-- ===================================================== -->
+    <aside class="sidebar">
+
+        <!-- Logo do sistema -->
+        <div class="sidebar-logo">
+            <img src="img/logo2.png" alt="Logo AGROBOM">
+        </div>
+
+        <!-- Links de navegação entre as páginas -->
+        <nav class="sidebar-menu">
+
+            <a href="dashboard.html" class="menu-item">
+                <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </a>
+
+            <a href="clientes.html" class="menu-item">
+                <i class="fa-solid fa-users"></i> Clientes
+            </a>
+
+            <a href="produtos.html" class="menu-item">
+                <i class="fa-solid fa-box"></i> Produtos
+            </a>
+
+            <a href="pedidos.html" class="menu-item">
+                <i class="fa-solid fa-file-invoice-dollar"></i> Pedidos
+            </a>
+
+            <a href="estoque.html" class="menu-item">
+                <i class="fa-solid fa-boxes-stacked"></i> Estoque
+            </a>
+
+            <a href="relatorios.html" class="menu-item">
+                <i class="fa-solid fa-chart-line"></i> Relatórios
+            </a>
+
+            <a href="sobre.html" class="menu-item">
+                <i class="fa-solid fa-circle-info"></i> Sobre
+            </a>
+
+            <a href="tecnologias.html" class="menu-item">
+                <i class="fa-solid fa-code"></i> Tecnologias
+            </a>
+
+            <a href="funcionamento.html" class="menu-item">
+                <i class="fa-solid fa-gears"></i> Funcionamento
+            </a>
+
+        </nav>
+
+        <!-- Script simples que marca automaticamente a página atual no menu -->
+        <script>
+            const paginaAtual = window.location.pathname.split("/").pop();
+
+            document.querySelectorAll(".menu-item").forEach(item => {
+                if (item.getAttribute("href") === paginaAtual) {
+                    item.classList.add("active");
+                }
+            });
+        </script>
+
+        <!-- Botão de saída para voltar ao login -->
+        <div class="sidebar-footer">
+            <a href="index.html" class="menu-item logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sair
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- ===================================================== -->
+    <!-- CONTEÚDO PRINCIPAL DA PÁGINA                          -->
+    <!-- ===================================================== -->
+    <main class="main-content">
+
+        <!-- Cabeçalho superior -->
+        <header class="topbar">
+
+            <!-- Título exibido no topo da página -->
+            <div class="topbar-title">
+                SOBRE O PROJETO
+            </div>
+
+            <!-- Usuário fictício apenas para compor o layout -->
+            <div class="topbar-user">
+                <div class="user-profile">
+                    <i class="fa-regular fa-user-circle"></i>
+                    <span>Admin</span>
+                </div>
+            </div>
+
+        </header>
+
+        <!-- Apresentação inicial do sistema -->
+        <div class="content-header-title">
+
+            <h2>AGROBOM 🌱</h2>
+
+            <p>
+                Sistema acadêmico desenvolvido para auxiliar na gestão
+                de empresas do setor agrícola, oferecendo uma interface
+                simples, organizada e intuitiva.
+            </p>
+
+        </div>
+
+        <br>
+
+        <!-- Caixa principal com as explicações do projeto -->
+        <div class="data-box full-width">
+
+            <!-- Objetivo geral do sistema -->
+            <h2> Objetivo do Projeto</h2>
+
+            <p>
+                O AGROBOM foi desenvolvido como projeto acadêmico com o
+                objetivo de demonstrar a aplicação de conceitos de gestão,
+                organização de dados e desenvolvimento web em um ambiente
+                voltado para o setor agrícola.
+            </p>
+
+            <br><br>
+
+            <!-- Problema que o sistema tenta resolver -->
+            <h2> Problema que o Sistema Resolve</h2>
+
+            <p>
+                Muitas empresas precisam controlar clientes, produtos,
+                pedidos e estoque simultaneamente. O sistema busca reunir
+                essas informações em um único ambiente para facilitar a
+                administração do negócio.
+            </p>
+
+            <br><br>
+
+            <!-- Lista das principais funções do sistema -->
+            <h2> Principais Funcionalidades</h2>
+
+            <ul>
+                <li>Cadastro de clientes</li>
+                <li>Gerenciamento de produtos</li>
+                <li>Controle de pedidos</li>
+                <li>Monitoramento de estoque</li>
+                <li>Visualização de relatórios</li>
+                <li>Painel administrativo</li>
+            </ul>
+
+            <br><br>
+
+            <!-- Explicação da sua parte no trabalho -->
+            <h2> Minha Participação no Projeto</h2>
+
+            <p>
+                Fiquei responsável pelo desenvolvimento do front-end do
+                sistema, criando as telas, menus, formulários e elementos
+                visuais responsáveis pela interação do usuário com a aplicação.
+            </p>
+
+            <br><br>
+
+            <!-- Tecnologias usadas no front-end -->
+            <h2> Tecnologias Utilizadas</h2>
+
+            <p>
+                O desenvolvimento da interface foi realizado utilizando
+                HTML para estruturação das páginas, CSS para estilização
+                visual e JavaScript para as funcionalidades e interações
+                presentes no sistema.
+            </p>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

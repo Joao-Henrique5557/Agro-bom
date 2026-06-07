@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGROBOM - Estoque</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="painel.css?v=7">
+</head>
+<!-- ===================================================== -->
+<!-- TELA DE CONTROLE DE ESTOQUE                           -->
+<!-- Projeto AGROBOM                                       -->
+<!-- Responsável por monitorar produtos armazenados        -->
+<!-- e seus respectivos níveis de estoque                  -->
+<!-- ===================================================== -->
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+        
+		<!-- ===================================================== -->
+		<!-- MENU LATERAL                                          -->
+		<!-- Permite navegar entre todos os módulos do sistema     -->
+		<!-- ===================================================== -->
+		<aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="img/logo2.png" alt="AGROBOM Logo">
+            </div>
+            
+			<nav class="sidebar-menu">
+			    <a href="dashboard.html" class="menu-item">
+			        <i class="fa-solid fa-chart-pie"></i> Dashboard
+			    </a>
+
+			    <a href="clientes.html" class="menu-item">
+			        <i class="fa-solid fa-users"></i> Clientes
+			    </a>
+
+			    <a href="produtos.html" class="menu-item">
+			        <i class="fa-solid fa-box"></i> Produtos
+			    </a>
+
+			    <a href="pedidos.html" class="menu-item">
+			        <i class="fa-solid fa-file-invoice-dollar"></i> Pedidos
+			    </a>
+
+			    <a href="estoque.html" class="menu-item">
+			        <i class="fa-solid fa-boxes-stacked"></i> Estoque
+			    </a>
+
+			    <a href="relatorios.html" class="menu-item">
+			        <i class="fa-solid fa-chart-line"></i> Relatórios
+			    </a>
+
+			    <a href="sobre.html" class="menu-item">
+			        <i class="fa-solid fa-circle-info"></i> Sobre
+			    </a>
+
+			    <a href="tecnologias.html" class="menu-item">
+			        <i class="fa-solid fa-code"></i> Tecnologias
+			    </a>
+
+			    <a href="funcionamento.html" class="menu-item">
+			        <i class="fa-solid fa-gears"></i> Funcionamento
+			    </a>
+			</nav>
+
+			<script>
+			    const paginaAtual = window.location.pathname.split("/").pop();
+
+			    document.querySelectorAll(".menu-item").forEach(item => {
+			        if (item.getAttribute("href") === paginaAtual) {
+			            item.classList.add("active");
+			        }
+			    });
+			</script>
+            <div class="sidebar-footer">
+                <a href="index.html" class="menu-item logout">
+                    <i class="fa-solid fa-right-from-bracket"></i> Sair
+                </a>
+            </div>
+        </aside>
+
+		<!-- ===================================================== -->
+		<!-- CONTEÚDO PRINCIPAL                                    -->
+		<!-- Área responsável pelo gerenciamento do estoque        -->
+		<!-- ===================================================== -->
+		<main class="main-content">
+            
+			<!-- ===================================================== -->
+			<!-- CABEÇALHO DA PÁGINA                                   -->
+			<!-- Exibe o nome do módulo e informações do usuário       -->
+			<!-- ===================================================== -->
+			<header class="topbar">
+                <div class="topbar-title">ESTOQUE</div>
+                <div class="topbar-user">
+                    <i class="fa-regular fa-bell" style="font-size: 20px; cursor: pointer;"></i>
+                    <div class="user-profile">
+                        <i class="fa-regular fa-user-circle" style="font-size: 24px;"></i>
+                        <span>Admin</span>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-header">
+                <div class="content-header-title">
+                    <h2>Controle de Estoque</h2>
+                    <p>Monitore os níveis de armazenamento e evite falta de insumos</p>
+                </div>
+                <button class="btn-primary" onclick="abrirModal()">
+                    <i class="fa-solid fa-right-left"></i> Movimentar Estoque
+                </button>
+            </div>
+
+			<!-- ===================================================== -->
+			<!-- TABELA DE CONTROLE DE ESTOQUE                         -->
+			<!-- Lista todos os produtos e seus níveis de estoque      -->
+			<!-- ===================================================== -->
+			<div class="data-box full-width">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left; width: 100px;">ID</th>
+                            <th style="text-align: left;">Produto</th>
+                            <th style="text-align: left;">Categoria</th>
+                            <th style="text-align: left;">Qtd. Mínima</th>
+                            <th style="text-align: left;">Qtd. Atual</th>
+                            <th style="text-align: center; width: 140px;">Status</th>
+                            <th style="text-align: center; width: 120px;">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#PRD01</td>
+                            <td class="fw-semibold">Semente de Soja Transgênica Premium</td>
+                            <td>Sementes</td>
+                            <td>10 sacos</td>
+                            <td class="fw-semibold">50 sacos</td>
+                            <td style="text-align: center;">
+                                <span class="badge badge-success">Estável</span>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn-action btn-edit" title="Histórico"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                                <button class="btn-action btn-edit" title="Editar Limites"><i class="fa-solid fa-sliders"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#PRD02</td>
+                            <td class="fw-semibold">Fertilizante NPK 04-14-08</td>
+                            <td>Fertilizantes</td>
+                            <td>10 toneladas</td>
+                            <td class="fw-semibold text-alert">8 toneladas</td>
+                            <td style="text-align: center;">
+                                <span class="badge badge-warning">Alerta</span>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn-action btn-edit" title="Histórico"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                                <button class="btn-action btn-edit" title="Editar Limites"><i class="fa-solid fa-sliders"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#PRD03</td>
+                            <td class="fw-semibold">Defensivo Agrícola Protetor 1L</td>
+                            <td>Defensivos</td>
+                            <td>20 frascos</td>
+                            <td class="fw-semibold">120 frascos</td>
+                            <td style="text-align: center;">
+                                <span class="badge badge-success">Estável</span>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn-action btn-edit" title="Histórico"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                                <button class="btn-action btn-edit" title="Editar Limites"><i class="fa-solid fa-sliders"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#PRD04</td>
+                            <td class="fw-semibold">Calcário Agrícola Ensacado</td>
+                            <td>Corretivos</td>
+                            <td>15 sacos</td>
+                            <td class="fw-semibold text-alert" style="color: #e03131;">3 sacos</td>
+                            <td style="text-align: center;">
+                                <span class="badge badge-danger">Crítico</span>
+                            </td>
+                            <td class="actions-cell">
+                                <button class="btn-action btn-edit" title="Histórico"><i class="fa-solid fa-clock-rotate-left"></i></button>
+                                <button class="btn-action btn-edit" title="Editar Limites"><i class="fa-solid fa-sliders"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </main>
+
+    </div>
+
+	<!-- ===================================================== -->
+	<!-- MODAL DE MOVIMENTAÇÃO DE ESTOQUE                      -->
+	<!-- Utilizado para cadastrar ou editar itens              -->
+	<!-- ===================================================== -->
+	<div id="modalEstoque" class="modal-container">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Movimentar / Editar Estoque</h3>
+            <button onclick="fecharModal()" class="btn-close-modal">&times;</button>
+        </div>
+        <form id="formEstoque" onsubmit="salvarEstoque(event)">
+            <div class="form-group">
+                <label for="nomeItem">Produto</label>
+                <input type="text" id="nomeItem" required placeholder="Ex: Semente de Soja">
+            </div>
+            <div class="form-group">
+                <label for="catItem">Categoria</label>
+                <input type="text" id="catItem" required placeholder="Ex: Sementes">
+            </div>
+            <div class="form-group">
+                <label for="minItem">Qtd. Mínima (Limite de Alerta)</label>
+                <input type="text" id="minItem" required placeholder="Ex: 10 sacos">
+            </div>
+            <div class="form-group">
+                <label for="atualItem">Qtd. Atual em Estoque</label>
+                <input type="text" id="atualItem" required placeholder="Ex: 50 sacos">
+            </div>
+            <div class="form-group">
+                <label for="statusItem">Status do Nível</label>
+                <select id="statusItem" required style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 14px; background: white;">
+                    <option value="Estável">Estável (Estoque Ideal)</option>
+                    <option value="Alerta">Alerta (Abaixo do Ideal)</option>
+                    <option value="Crítico">Crítico (Falta Imediata)</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="fecharModal()" class="btn-cancel">Cancelar</button>
+                <button type="submit" class="btn-save">Salvar Alterações</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ===================================================== -->
+<!-- JAVASCRIPT                                            -->
+<!-- Responsável pelas operações de cadastro, edição,      -->
+<!-- exclusão e armazenamento dos itens de estoque         -->
+<!-- ===================================================== -->
+<script>
+	// Armazena o índice do item que está sendo editado.
+	// Quando estiver nulo, significa um novo cadastro.
+	let indexEdicao = null;
+
+	// Exibe a janela de movimentação de estoque
+	function abrirModal() {
+        document.getElementById('modalEstoque').style.display = 'flex';
+    }
+
+	// Fecha a janela e limpa os campos do formulário
+	function fecharModal() {
+        document.getElementById('modalEstoque').style.display = 'none';
+        document.getElementById('formEstoque').reset();
+        indexEdicao = null;
+        document.querySelector('.modal-header h3').innerText = "Movimentar / Editar Estoque";
+    }
+
+	// Carrega os itens salvos no navegador
+	// e monta a tabela automaticamente
+	function carregarEstoque() {
+        const tabela = document.querySelector('.dashboard-table tbody');
+        
+        const estoquePadrao = [
+            { id: '#PRD01', produto: 'Semente de Soja Transgênica Premium', cat: 'Sementes', min: '10 sacos', atual: '50 sacos', status: 'Estável' },
+            { id: '#PRD02', produto: 'Fertilizante NPK 04-14-08', cat: 'Fertilizantes', min: '10 toneladas', atual: '8 toneladas', status: 'Alerta' },
+            { id: '#PRD03', produto: 'Defensivo Agrícola Protetor 1L', cat: 'Defensivos', min: '20 frascos', atual: '120 frascos', status: 'Estável' },
+            { id: '#PRD04', produto: 'Calcário Agrícola Ensacado', cat: 'Corretivos', min: '15 sacos', atual: '3 sacos', status: 'Crítico' }
+        ];
+
+        let estoque = JSON.parse(localStorage.getItem('agrobom_estoque'));
+        if (!estoque) {
+            estoque = estoquePadrao;
+            localStorage.setItem('agrobom_estoque', JSON.stringify(estoque));
+        }
+
+        tabela.innerHTML = '';
+
+        estoque.forEach((item, index) => {
+            const linha = document.createElement('tr');
+            
+            let classeBadge = 'badge-success';
+            let classeTexto = '';
+            if (item.status === 'Alerta') { classeBadge = 'badge-warning'; classeTexto = 'text-alert'; }
+            if (item.status === 'Crítico') { classeBadge = 'badge-danger'; classeTexto = 'text-alert'; }
+
+            // Configurando os botões de ações para responderem ao clique
+            linha.innerHTML = `
+                <td>${item.id}</td>
+                <td class="fw-semibold">${item.produto}</td>
+                <td>${item.cat}</td>
+                <td>${item.min}</td>
+                <td class="fw-semibold ${classeTexto}">${item.atual}</td>
+                <td style="text-align: center;">
+                    <span class="badge ${classeBadge}">${item.status}</span>
+                </td>
+                <td class="actions-cell">
+                    <button class="btn-action btn-edit" onclick="editarEstoque(${index})" title="Editar Configurações"><i class="fa-solid fa-sliders"></i></button>
+                    <button class="btn-action btn-delete" onclick="deletarEstoque(${index})" title="Excluir do Estoque"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            `;
+            tabela.appendChild(linha);
+        });
+    }
+
+	// Carrega os dados do item selecionado
+	// para edição no formulário
+	function editarEstoque(index) {
+        let estoque = JSON.parse(localStorage.getItem('agrobom_estoque'));
+        let item = estoque[index];
+
+        indexEdicao = index;
+        document.querySelector('.modal-header h3').innerText = "Ajustar " + item.id;
+
+        document.getElementById('nomeItem').value = item.produto;
+        document.getElementById('catItem').value = item.cat;
+        document.getElementById('minItem').value = item.min;
+        document.getElementById('atualItem').value = item.atual;
+        document.getElementById('statusItem').value = item.status;
+
+        abrirModal();
+    }
+
+	// Salva um novo item ou atualiza um item existente
+	function salvarEstoque(event) {
+        event.preventDefault();
+        let estoque = JSON.parse(localStorage.getItem('agrobom_estoque')) || [];
+
+        const prod = document.getElementById('nomeItem').value;
+        const categoria = document.getElementById('catItem').value;
+        const minima = document.getElementById('minItem').value;
+        const atual = document.getElementById('atualItem').value;
+        const status = document.getElementById('statusItem').value;
+
+        if (indexEdicao !== null) {
+            estoque[indexEdicao].produto = prod;
+            estoque[indexEdicao].cat = categoria;
+            estoque[indexEdicao].min = minima;
+            estoque[indexEdicao].atual = atual;
+            estoque[indexEdicao].status = status;
+        } else {
+            const novoId = '#PRD' + String(estoque.length + 1).padStart(2, '0');
+            estoque.push({ id: novoId, produto: prod, cat: categoria, min: minima, atual: atual, status: status });
+        }
+
+        localStorage.setItem('agrobom_estoque', JSON.stringify(estoque));
+        fecharModal();
+        carregarEstoque();
+    }
+
+	// Remove um item do estoque após confirmação do usuário
+	function deletarEstoque(index) {
+        if(confirm("Deseja remover este item do controle de estoque?")) {
+            let estoque = JSON.parse(localStorage.getItem('agrobom_estoque'));
+            estoque.splice(index, 1);
+            localStorage.setItem('agrobom_estoque', JSON.stringify(estoque));
+            carregarEstoque();
+        }
+    }
+
+	// Ao abrir a página, carrega automaticamente
+	// os itens cadastrados no estoque
+	window.onload = carregarEstoque;
+</script>
+</body>
+</html>
