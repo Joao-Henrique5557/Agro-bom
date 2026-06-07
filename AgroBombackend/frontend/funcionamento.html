@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Faz a página se adaptar melhor ao tamanho da tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AGROBOM - Funcionamento</title>
+
+    <!-- Fonte usada no sistema -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Biblioteca de ícones usada no menu e nos cards -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS principal do painel -->
+    <link rel="stylesheet" href="painel.css">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-container">
+
+    <!-- ===================================================== -->
+    <!-- MENU LATERAL                                          -->
+    <!-- ===================================================== -->
+    <aside class="sidebar">
+
+        <!-- Logo do sistema -->
+        <div class="sidebar-logo">
+            <img src="img/logo2.png" alt="Logo AGROBOM">
+        </div>
+
+        <!-- Menu com todas as páginas do sistema -->
+        <nav class="sidebar-menu">
+
+            <a href="dashboard.html" class="menu-item">
+                <i class="fa-solid fa-chart-pie"></i> Dashboard
+            </a>
+
+            <a href="clientes.html" class="menu-item">
+                <i class="fa-solid fa-users"></i> Clientes
+            </a>
+
+            <a href="produtos.html" class="menu-item">
+                <i class="fa-solid fa-box"></i> Produtos
+            </a>
+
+            <a href="pedidos.html" class="menu-item">
+                <i class="fa-solid fa-file-invoice-dollar"></i> Pedidos
+            </a>
+
+            <a href="estoque.html" class="menu-item">
+                <i class="fa-solid fa-boxes-stacked"></i> Estoque
+            </a>
+
+            <a href="relatorios.html" class="menu-item">
+                <i class="fa-solid fa-chart-line"></i> Relatórios
+            </a>
+
+            <a href="sobre.html" class="menu-item">
+                <i class="fa-solid fa-circle-info"></i> Sobre
+            </a>
+
+            <a href="tecnologias.html" class="menu-item">
+                <i class="fa-solid fa-code"></i> Tecnologias
+            </a>
+
+            <a href="funcionamento.html" class="menu-item">
+                <i class="fa-solid fa-gears"></i> Funcionamento
+            </a>
+
+        </nav>
+
+        <!-- Script que marca automaticamente a página atual no menu -->
+        <script>
+            const paginaAtual = window.location.pathname.split("/").pop();
+
+            document.querySelectorAll(".menu-item").forEach(item => {
+                if (item.getAttribute("href") === paginaAtual) {
+                    item.classList.add("active");
+                }
+            });
+        </script>
+
+        <!-- Botão para voltar ao login -->
+        <div class="sidebar-footer">
+            <a href="index.html" class="menu-item logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                Sair
+            </a>
+        </div>
+
+    </aside>
+
+    <!-- ===================================================== -->
+    <!-- CONTEÚDO PRINCIPAL                                    -->
+    <!-- ===================================================== -->
+    <main class="main-content">
+
+        <!-- Cabeçalho superior da página -->
+        <header class="topbar">
+            <div class="topbar-title">
+                FUNCIONAMENTO DO FRONT-END
+            </div>
+
+            <div class="user-profile">
+                <i class="fa-regular fa-user-circle"></i>
+                <span>Admin</span>
+            </div>
+        </header>
+
+        <!-- Introdução -->
+        <div class="content-header-title">
+            <h2>Como organizei a parte visual do sistema</h2>
+
+            <p>
+                Esta página explica, de forma simples, como as telas foram
+                organizadas e como o front-end ajuda o usuário a navegar pelo AGROBOM.
+            </p>
+        </div>
+
+        <br>
+
+        <!-- Caixa principal -->
+        <div class="data-box full-width">
+
+            <!-- Explicação curta para apresentação -->
+            <h2>🧩 Organização geral</h2>
+
+            <p>
+                O front-end foi dividido em páginas separadas. Cada página
+                representa uma parte do sistema, como clientes, produtos,
+                pedidos, estoque e relatórios. Essa divisão deixou o projeto
+                mais organizado e mais fácil de apresentar.
+            </p>
+
+            <br><br>
+
+            <!-- ===================================================== -->
+            <!-- CARDS EXPLICANDO AS PARTES DO FRONT-END               -->
+            <!-- ===================================================== -->
+            <div class="function-grid">
+
+                <!-- CARD 1 -->
+                <div class="function-card">
+                    <i class="fa-solid fa-folder-tree"></i>
+                    <h3>Estrutura das páginas</h3>
+                    <p>
+                        Cada módulo do sistema possui sua própria página HTML,
+                        facilitando a navegação e a organização do projeto.
+                    </p>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="function-card">
+                    <i class="fa-solid fa-bars"></i>
+                    <h3>Menu lateral</h3>
+                    <p>
+                        O menu lateral conecta todas as telas e permite que o
+                        usuário acesse rapidamente cada área do sistema.
+                    </p>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="function-card">
+                    <i class="fa-solid fa-table"></i>
+                    <h3>Tabelas</h3>
+                    <p>
+                        As tabelas organizam as informações principais, como
+                        clientes cadastrados, produtos, pedidos e estoque.
+                    </p>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="function-card">
+                    <i class="fa-solid fa-window-restore"></i>
+                    <h3>Modais</h3>
+                    <p>
+                        Os modais são janelas usadas para cadastrar ou editar
+                        dados sem precisar sair da tela atual.
+                    </p>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="function-card">
+                    <i class="fa-solid fa-computer-mouse"></i>
+                    <h3>Interações</h3>
+                    <p>
+                        O JavaScript foi usado para controlar botões, abrir
+                        janelas, atualizar tabelas e simular ações do sistema.
+                    </p>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="function-card">
+                    <i class="fa-solid fa-code-branch"></i>
+                    <h3>Conexão com o projeto</h3>
+                    <p>
+                        O front-end funciona como a parte visual que representa
+                        as informações que seriam tratadas pelo back-end e banco.
+                    </p>
+                </div>
+
+            </div>
+
+            <br><br>
+
+            <!-- ===================================================== -->
+            <!-- FLUXO SIMPLES DO SISTEMA                              -->
+            <!-- ===================================================== -->
+            <h2>🔄 Fluxo das telas</h2>
+
+            <p>
+                A navegação foi pensada para seguir uma sequência simples:
+                o usuário entra no sistema, visualiza o painel principal,
+                acessa os módulos e consulta as informações necessárias.
+            </p>
+
+            <br>
+
+            <!-- Fluxo visual simples para explicar na apresentação -->
+            <div class="flow-box">
+                <span>Login</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Dashboard</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Clientes / Produtos</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Pedidos / Estoque</span>
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>Relatórios</span>
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>
