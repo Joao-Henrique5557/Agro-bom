@@ -1,0 +1,25 @@
+# Backend / Maven
+backend/target/
+backend/*.log
+
+# Eclipse (caso o projeto seja reaberto no Eclipse)
+.classpath
+.project
+.settings/
+backend/build/
+
+# Frontend / React Native / Expo
+frontend/node_modules/
+frontend/.expo/
+frontend/dist/
+frontend/npm-debug.*
+frontend/*.jks
+frontend/*.p8
+frontend/*.p12
+frontend/*.key
+frontend/*.mobileprovision
+
+# Diversos
+.DS_Store
+*.env
+!*.env.example
